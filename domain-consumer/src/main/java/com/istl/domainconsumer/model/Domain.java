@@ -1,7 +1,6 @@
-package com.istl.domaincrawler.model;
+package com.istl.domainconsumer.model;
 
 import lombok.*;
-import lombok.experimental.PackagePrivate;
 
 import java.io.Serializable;
 import java.util.List;
@@ -11,7 +10,7 @@ import java.util.List;
 @NoArgsConstructor
 @AllArgsConstructor
 @ToString
-public class Domain implements Serializable {
+public class Domain{
     private String domain;
     private String create_date;
     private String update_date;

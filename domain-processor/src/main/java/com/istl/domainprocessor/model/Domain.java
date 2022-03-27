@@ -1,7 +1,7 @@
-package com.istl.domaincrawler.model;
+package com.istl.domainprocessor.model;
+
 
 import lombok.*;
-import lombok.experimental.PackagePrivate;
 
 import java.io.Serializable;
 import java.util.List;

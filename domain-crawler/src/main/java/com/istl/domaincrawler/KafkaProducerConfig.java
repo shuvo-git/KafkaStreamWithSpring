@@ -9,21 +9,21 @@ import org.springframework.kafka.core.DefaultKafkaProducerFactory;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.kafka.core.ProducerFactory;
 import org.springframework.kafka.support.serializer.JsonSerializer;
-
 import java.util.HashMap;
 import java.util.Map;
 
 @Configuration
-public class KafkaProducerConfig {
-
+public class KafkaProducerConfig
+{
     @Bean
-    public KafkaTemplate<String, Domain> kafkaTemplate(){
+    public KafkaTemplate<String, Domain> kafkaTemplate()
+    {
         return new KafkaTemplate<>(producerFactory());
     }
 
-
     @Bean
-    public ProducerFactory<String, Domain> producerFactory(){
+    public ProducerFactory<String, Domain> producerFactory()
+    {
         Map<String, Object> conf = new HashMap<>();
         conf.put(ProducerConfig.BOOTSTRAP_SERVERS_CONFIG,"127.0.0.1:9092");
         conf.put(ProducerConfig.KEY_SERIALIZER_CLASS_CONFIG, StringSerializer.class);
