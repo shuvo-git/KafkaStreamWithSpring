@@ -2,6 +2,7 @@ package com.istl.domaincrawler;
 
 import com.istl.domaincrawler.model.Domain;
 import com.istl.domaincrawler.model.DomainList;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.MediaType;
 import org.springframework.kafka.core.KafkaTemplate;
 import org.springframework.stereotype.Service;
@@ -14,6 +15,7 @@ public class DomainCrawlerService {
     private final KafkaTemplate<String, Domain> kafkaTemplate;
     private final String KAFKA_TOPIC = "web-domains";
 
+    @Autowired
     public DomainCrawlerService(KafkaTemplate<String, Domain> kafkaTemplate) {
         this.kafkaTemplate = kafkaTemplate;
     }
@@ -32,7 +34,7 @@ public class DomainCrawlerService {
             domainList.getDomains()
                 .forEach(domain -> {
                     kafkaTemplate.send(KAFKA_TOPIC,domain);
-                    System.out.println("[Sending message to KAfka Topic: ]"+domain.getDomain());
+                    System.out.println("[Sending message to Kafka Topic: ]"+domain.getDomain());
                 });
         });
 
